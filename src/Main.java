@@ -138,9 +138,15 @@ public class Main {
                             double price = scanner.nextDouble();
 
                             if (type == 1) {
-                                inventory.addCar(new GasCar(id, brand, model, price));
+                                System.out.print("Yakıt tüketimi: ");
+                                double fuel = scanner.nextDouble();
+                                inventory.addCar(new GasCar(id, brand, model, price, fuel));
                             } else if (type == 2) {
-                                inventory.addCar(new ElectricCar(id, brand, model, price));
+                                System.out.print("Batarya kapasitesi: ");
+                                int battery = scanner.nextInt();
+                                System.out.print("100 km'de enerji tüketimi (kWh): ");
+                                double energy = scanner.nextDouble();
+                                inventory.addCar(new ElectricCar(id, brand, model, price, battery,energy));
                             } else {
                                 System.out.println("Geçersiz araç tipi.");
                                 break;
@@ -188,6 +194,11 @@ public class Main {
                             if (car != null && car.isAvailable()) {
                                 System.out.print("Kaç gün?: ");
                                 int days = scanner.nextInt();
+
+                                System.out.print("Tahmini kaç km?: ");
+                                int km = scanner.nextInt();
+
+                                double consumption = car.calculateConsumption(km);
 
                                 Rental rental = new Rental(
                                         rentals.size() + 1,

@@ -32,6 +32,6 @@ public abstract class Car implements IRentable {
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
-
+    public abstract double calculateConsumption(int km);
     public abstract double calculateRentalFee(int days);
 }

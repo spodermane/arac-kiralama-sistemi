@@ -9,7 +9,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        // Bellekte tutulan veriler (Seviye 1)
+
         List<Customer> customers = new ArrayList<>();
         List<Rental> rentals = new ArrayList<>();
         CarInventory inventory = new CarInventory();

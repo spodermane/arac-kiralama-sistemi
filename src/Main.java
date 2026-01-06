@@ -101,7 +101,7 @@ public class Main {
             /* ana menü */
             else {
 
-                System.out.println("\n=== ANA MENÜ ===");
+                System.out.println("\n=== Ana Menü ===");
                 System.out.println("1 - Araç Ekle");
                 System.out.println("2 - Araç Sil");
                 System.out.println("3 - Müsait Araçları Listele");
@@ -144,7 +144,7 @@ public class Main {
                             } else if (type == 2) {
                                 System.out.print("Batarya kapasitesi: ");
                                 int battery = scanner.nextInt();
-                                System.out.print("100 km'de enerji tüketimi (kWh): ");
+                                System.out.print("Enerji tüketimi (kWh): ");
                                 double energy = scanner.nextDouble();
                                 inventory.addCar(new ElectricCar(id, brand, model, price, battery,energy));
                             } else {
@@ -210,6 +210,12 @@ public class Main {
                                 rentals.add(rental);
                                 System.out.println("Kiralama başarılı.");
                                 System.out.println("Toplam ücret: " + rental.getTotalFee());
+
+                                if (car instanceof GasCar) {
+                                    System.out.println("Tahmini yakıt tüketimi: " + consumption + " litre");
+                                } else if (car instanceof ElectricCar) {
+                                    System.out.println("Tahmini enerji tüketimi: " + consumption + " kWh");
+                                }
                             } else {
                                 System.out.println("Araç müsait değil.");
                             }
@@ -248,7 +254,7 @@ public class Main {
                     // Çıkıs Yap
                     case 6 -> {
                         loggedInCustomer = null;
-                        System.out.println("🚪 Çıkış yapıldı.");
+                        System.out.println("Çıkış yapıldı.");
                     }
 
                     default -> System.out.println("Geçersiz seçim.");
